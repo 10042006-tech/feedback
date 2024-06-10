@@ -1,10 +1,13 @@
-import { ButtonConteiner, CardContainer, IconConteiner } from "./Home.styles";
+import { ButtonConteiner, CardContainer, IconConteiner, ResultConteiner } from "./Home.styles";
 
 import iconStarImg from "../assets/icon-star.svg"
+import thankYouImg from "../assets/illustration-thank-you.svg"
 
 export function Home() {
+    let aparecerResultado = true
   return (
-    <CardContainer>
+    aparecerResultado === false ? (
+        <CardContainer>
         <IconConteiner>
             <img src={iconStarImg} alt="ícone de estrela" />  
         </IconConteiner>
@@ -24,5 +27,19 @@ export function Home() {
 
         <button>Enviar</button>
     </CardContainer>
+    ) : (
+        <CardContainer>
+            <img src={thankYouImg} alt="imagem de agradecimento" />
+
+            <ResultConteiner>
+            <p>Você selecionou 4 de 5</p>
+            </ResultConteiner>
+
+            <h1>Obrigado!</h1>
+
+            <p>Agradecemos por dedicar um momento para nos avaliar. Se precisar de mais suporte, não hesite em entrar em contato! </p>
+        </CardContainer>
+    )
+    
   )
 }
